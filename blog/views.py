@@ -5,18 +5,20 @@ from blog.models import Post
 
 def post_list(request):
     posts = Post.published.all()
-    context = {'posts': posts,}
-    
-    return render(request, 'blog/post/list.html', context)
+    context = {"posts": posts}
+
+    print(posts)
+
+    return render(request, "blog/list.html", context)
+
 
 def post_detail(request, id):
     post = get_object_or_404(Post, id=id)
-    context = {'post': post}
+    context = {"post": post}
 
     # try:
     #     post = Post.published.get(id=id)
     #     context = {'post': post}
     # except Post.DoesNotExist:
-    #     Http404("No Post found.") 
-    return render(request, 'blog/post/detail.html', context)
-
+    #     Http404("No Post found.")
+    return render(request, "blog/detail.html", context)
