@@ -10,6 +10,24 @@ class PostAdmin(admin.ModelAdmin):
     search_fields = ("title", "body")
     prepopulated_fields = {"slug": ("title",)}
     # raw_id_fields = ("author",)
-    date_hierarchy = 'publish'
+    date_hierarchy = "publish"
     ordering = ("status", "publish")
     show_facets = admin.ShowFacets.ALWAYS
+
+
+@admin.register()
+class Admin(admin.ModelAdmin):
+    list_display = (
+        "name",
+        "email",
+        "body",
+        "created",
+        "updated",
+        "active",
+    )
+    list_filter = (
+        "created",
+        "updated",
+        "active",
+    )
+    search_fields = ["name", "email", "body"]
