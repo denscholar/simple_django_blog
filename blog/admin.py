@@ -1,5 +1,5 @@
 from django.contrib import admin
-from blog.models import Post
+from blog.models import Comment, Post
 
 
 # customize the admin
@@ -15,12 +15,11 @@ class PostAdmin(admin.ModelAdmin):
     show_facets = admin.ShowFacets.ALWAYS
 
 
-@admin.register()
+@admin.register(Comment)
 class Admin(admin.ModelAdmin):
     list_display = (
         "name",
         "email",
-        "body",
         "created",
         "updated",
         "active",
