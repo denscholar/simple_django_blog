@@ -115,3 +115,5 @@ def post_comment(request, post_id):
             "comment": comment,
         }
         return render(request, "blog/comment.html", context)
+
+
