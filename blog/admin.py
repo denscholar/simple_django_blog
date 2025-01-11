@@ -5,9 +5,24 @@ from blog.models import Comment, Post
 # customize the admin
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ("title", "slug", "author", "publish", "status")
-    list_filter = ("created", "author", "publish", "status")
-    search_fields = ("title", "body")
+    list_display = (
+        "id",
+        "title",
+        "slug",
+        "author",
+        "publish",
+        "status",
+    )
+    list_filter = (
+        "created",
+        "author",
+        "publish",
+        "status",
+    )
+    search_fields = (
+        "title",
+        "body",
+    )
     prepopulated_fields = {"slug": ("title",)}
     # raw_id_fields = ("author",)
     date_hierarchy = "publish"
